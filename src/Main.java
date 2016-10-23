@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-				
+		//github second oommit check		
 		/*
 		 * Arhieve ve FileIO singleton olduðu için yeni nesne yaratýyorum
 		 * sýnýfýn içinde olan static nesneyi alýp kullanýyoruz
