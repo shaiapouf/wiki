@@ -7,27 +7,28 @@ import org.jsoup.select.Elements;
 public class Movie {
 	
 	private static float success;
-	private static float noAnyLangSource;
+	private static float verifySuccess;
+	static float noAnyLangSource;		
 	
 	private int id;
-	private String title;
 	private String vikiURL_TR;
 	private String wikiURL_EN;
 	private String year;
 	private InfoBox infoBox;
+	private boolean verified;
 	
-
+	//CONSTRUCTORS
 	public Movie(){
 		setVikiURL_TR("TÜRKÇE KAYNAK BULUNAMADI");//türkçe kaynak bulunamazsa bu deðer böyle kalacaktýr.
 	}
-	public Movie(int id, String title, String wikiURL_EN, String vikiURL_TR, String year){
+	public Movie(int id, String wikiURL_EN, String vikiURL_TR, String year){
 		setId(id);
-		setTitle(title);
 		setWikiURL_EN(wikiURL_EN);
 		setVikiURL_TR(vikiURL_TR);
 		setYear(year);
 	}	
 	
+	//FUNCTIONS
 	public void setActiveVikiURL(){
 		/*
 		 * setActiveWikiLink() methodu çalýþtýktan sonra elimizde movienin eriþilebilir ve doðru inglizce linki var
@@ -50,7 +51,6 @@ public class Movie {
 			
 		}    	
 	}
-	
 	public void setActiveWikiLink(){
 		/*
 		 * _(YIL_film), _(film) ve uzantýsýz linkleri 404 hatasý almayana kadar dener, 
@@ -75,18 +75,14 @@ public class Movie {
 		System.out.println(" *active URL: "+activeLink);
 		this.setWikiURL_EN(activeLink);
 	}
-	
-	public void printInfoBOX(){
-		/*
-		 * Movie nesnesine ait InfoBox nesnesinin fieldlarýný ekrana bastýran method
-		 */
-		System.out.print("\nTitle: "+infoBox.getTitle()+"\nDirector: "+infoBox.getDirector()+"\nStarring: ");
-		for(String star : infoBox.getStarring()){
-			System.out.print(star+", ");
-		}
-		System.out.println("\n");
+	public void print(){
+		System.out.println("\n"+this.id+")"+this.infoBox.getTitle()+"("+this.year+")");
+		this.infoBox.printInfo();
+		
+		System.out.println("Wiki EN: "+this.wikiURL_EN+"\nViki TR: "+this.vikiURL_TR);
+		
+		//System.out.println("Verified: "+this.getVerified());
 	}
-	
 	
 	//GETTER-STTER METHODLARI
 	public InfoBox getInfoBox() {
@@ -106,12 +102,6 @@ public class Movie {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
 	}
 	public String getVikiURL_TR() {
 		return vikiURL_TR;
@@ -136,6 +126,18 @@ public class Movie {
 	}
 	public void setNoAnyLangSource(float noAnyLangSource) {
 		Movie.noAnyLangSource = noAnyLangSource;
+	}
+	public void setVerified(boolean verified){
+		this.verified = verified;
+	}
+	public boolean getVerified(){
+		return this.verified;
+	}
+	public float getVerifySuccess() {
+		return verifySuccess;
+	}
+	public void setVerifySuccess(float verifySuccess) {
+		Movie.verifySuccess = verifySuccess;
 	}
 	
 	

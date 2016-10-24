@@ -10,6 +10,11 @@ public class FileIO {
 	 * Singleton Class
 	 */
 	private static FileIO  fileIO   = new FileIO();	
+	private Document doc;
+	Scanner scanner;
+	String content;
+	
+	//CONSTRUCTORS
 	private FileIO(){
 		
 	}
@@ -17,11 +22,7 @@ public class FileIO {
 		return fileIO;
 	}
 	
-	private Document doc;
-	Scanner scanner;
-	String content;
-	
-	
+	//FUNCTIONS
 	public String fileToString(String fileName) throws IOException{
 		/*
 		 * dosya adýný alýp, bu dosyanýn içerðini string olarak döndüren method
@@ -55,6 +56,8 @@ public class FileIO {
 		System.out.println(" *checked: "+URL);
     	return true;
 	}
+	
+	//GETTER_SETTER METHODLARI
 	public Document getDoc() {
 		return doc;
 	}

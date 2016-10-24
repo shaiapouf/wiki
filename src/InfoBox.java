@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+
 import org.jsoup.Jsoup;
 import org.jsoup.Connection.Response;
 import org.jsoup.nodes.Document;
@@ -11,13 +12,11 @@ public class InfoBox {
 	private String title;
 	private String director;
 	private ArrayList<String> starring = new ArrayList<String>();
-	/*
-	 * private String imdbRate;
-	 * private String tomatoRate;
-	 * private ArrayList<String> genre = new ArrayList<String>();
-	 */
-
 	
+	//CONSTRUCTORS
+	public InfoBox(){
+		
+	}
 	public InfoBox(String vikiURL){
 		/*
 		 * wikipedia kaynaðýndaki element pathleri setter methodlara gönderilir
@@ -25,6 +24,11 @@ public class InfoBox {
 		setTitle(vikiURL, "#mw-content-text > table.infobox.vevent > tbody > tr:nth-child(1) > th.summary");
 		setDirector(vikiURL,0);
 		setStarring(vikiURL,0);
+	}
+	
+	//CUSTOM SETTER METHODS
+	public void setDirector(String director){
+		this.director = director;
 	}
 	public void setDirector(String vikiURL, int index) {
 		/*  
@@ -52,6 +56,9 @@ public class InfoBox {
 		}		  	
 	}
 	
+	public void setStarring(ArrayList<String> starring){
+		this.starring = starring;
+	}
 	public void setStarring(String vikiURL, int index) {
 		
 		try {	
@@ -88,6 +95,9 @@ public class InfoBox {
 		}		  	
 	}
 	
+	public void setTitle(String title){
+		this.title = title;
+	}
 	public void setTitle(String vikiURL,String path) {
 		/*
 		 * title pathindeki element okunur ve title fieldýna atanýr
@@ -106,7 +116,38 @@ public class InfoBox {
 		}		  	
 	}
 	
-	//KLASIK GETTER METHODLARI
+	//FUNCTIONS
+	public void printInfo(){
+		/*
+		 * InfoBox nesnesinin fieldlarýný ekrana bastýran method
+		 */
+		System.out.print("Director: "+this.director+"\nStarring: ");
+		for(String star : this.starring){
+				System.out.print(star+", ");
+		}
+		System.out.println();
+	}
+	public boolean isEqual(InfoBox other){
+		if(!this.title.equals(other.getTitle())){
+			System.out.println("Dismatch: "+this.title+"!="+other.getTitle());
+			return false;
+		}
+			
+		if(!this.director.equals(other.getDirector())){
+			System.out.println("Dismatch: "+this.director+"!="+other.getDirector());
+			return false;
+		}
+		for(String star : other.getStarring()){
+			//System.out.println(star);
+			if(!this.starring.contains(star)){
+				System.out.println("Dismatch: '"+star+"'"+" Does Not Exist In the Starring List");
+				return false;
+			}
+		}		
+		return true;
+	}
+	
+	//GETTER METHODLARI
 	public String getTitle() {
 		return title;
 	}
@@ -117,6 +158,23 @@ public class InfoBox {
 		return starring;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	 * private String imdbRate;
+	 * private String tomatoRate;
+	 * private ArrayList<String> genre = new ArrayList<String>();
+	 */
 	
 	/*public ArrayList<String> getGenre() {
 		return genre;
