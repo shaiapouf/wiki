@@ -8,7 +8,7 @@ public class Archive {
 	 * Singleton Class
 	 */
 	private static Archive  archive   = new Archive();
-	ArrayList<Movie> movieArchive = new ArrayList<Movie>();
+	private ArrayList<Movie> movieArchive = new ArrayList<Movie>();
 	
 	//CONSTRUCTORS
 	private Archive(){
@@ -16,6 +16,14 @@ public class Archive {
 	}	
 	public static Archive getArchive() {
 		return archive;
+	}
+	
+	//GETTER_SETTER METHODS
+	public void setMovieArchive(ArrayList<Movie> movieArchive) {
+		this.movieArchive = movieArchive;
+	}
+	public ArrayList<Movie> getMovieArchive() {
+		return this.movieArchive;
 	}
 	
 	//FUNCTIONS

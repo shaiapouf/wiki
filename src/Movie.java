@@ -6,8 +6,8 @@ import org.jsoup.select.Elements;
 
 public class Movie {
 	
-	private static float success;
-	private static float verifySuccess;
+	static float success;
+	static float verifySuccess;
 	static float noAnyLangSource;		
 	
 	private int id;

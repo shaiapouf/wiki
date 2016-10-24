@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 
@@ -14,15 +15,20 @@ public class Main {
 		
 		archieve.getMovies(fileIO.fileToString("top250"));
 		archieve.checkAndPrintMovies(fileIO.fileToString("top250_info"));
+		report();
 		
+		
+		
+	}
+	public static void report(){
+		Archive archieve = Archive.getArchive();
+		ArrayList<Movie> movieArchive = archieve.getMovieArchive();
 		System.out.println(
-				"\nIncelenen Film Sayýsý= "+archieve.movieArchive.size()
-				+ "\nIngilizce Kaynak Bulunan Film Sayýsý= "+(archieve.movieArchive.size()-(int)new Movie().getNoAnyLangSource())
-				+ "\nIngilizce ve Türkçe Kaynak Bulunan Film sayýsý= "+(int)new Movie().getSuccess()
-				+ "\nTR Link Baþarý Oraný= %"+(new Movie().getSuccess()*100)/archieve.movieArchive.size()
-				+ "\nTR Link Onaylanma Oraný= %"+(new Movie().getVerifySuccess()*100)/new Movie().getSuccess());
-		
-		
+				"\nIncelenen Film Sayýsý= "+movieArchive.size()
+				+ "\nIngilizce Kaynak Bulunan Film Sayýsý= "+(movieArchive.size()-Movie.noAnyLangSource
+				+ "\nIngilizce ve Türkçe Kaynak Bulunan Film sayýsý= "+Movie.success
+				+ "\nTR Link Baþarý Oraný= %"+(Movie.success*100)/movieArchive.size()
+				+ "\nTR Link Onaylanma Oraný= %"+(Movie.verifySuccess*100)/new Movie().getSuccess()));
 	}
 	
 }
