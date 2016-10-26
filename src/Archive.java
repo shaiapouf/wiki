@@ -1,4 +1,4 @@
-
+// allla allla
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -29,12 +29,12 @@ public class Archive {
 	//FUNCTIONS
 	public void getMovies(String content) throws IOException{
 		/*
-		 * dosya içeriğini çevirdiğimiz stringi | 'a göre ayırıp fieldları doldurduğumuz
-		 * ve sonra movieArchieve'e eklediğimiz method
-		 * burada önce wikiLink alınır sonra bu linkten aktif ve doğru wikiLink bulunur
-		 * bu aktif wikiLink'ten vikiLink_TR çıkarılır. yine bu aktif wikiLink'ten infoBox
-		 * değerleri alınır. Yıl, id de bulunduktan sonra
-		 * movie nesnesine bu değerler verilir(constructor çağırdığımızda bu değerler veriliyor)
+		 * dosya iÃ§eriÃ°ini Ã§evirdiÃ°imiz stringi | 'a gÃ¶re ayÃ½rÃ½p fieldlarÃ½ doldurduÃ°umuz
+		 * ve sonra movieArchieve'e eklediÃ°imiz method
+		 * burada Ã¶nce wikiLink alÃ½nÃ½r sonra bu linkten aktif ve doÃ°ru wikiLink bulunur
+		 * bu aktif wikiLink'ten vikiLink_TR Ã§Ã½karÃ½lÃ½r. yine bu aktif wikiLink'ten infoBox
+		 * deÃ°erleri alÃ½nÃ½r. YÃ½l, id de bulunduktan sonra
+		 * movie nesnesine bu deÃ°erler verilir(constructor Ã§aÃ°Ã½rdÃ½Ã°Ã½mÃ½zda bu deÃ°erler veriliyor)
 		 * 
 		 */
 		String[] blocks = content.split("\\||\\n");	
@@ -50,31 +50,31 @@ public class Archive {
 		        	 }else title += " "+titleParts[j];
 				}
 				/*
-				 * title oluşturuldu, burdan okuduğumuz title sadece link bulmak için
-				 * asıl title'ı infobox'tan çekip movie.infoBox nesnesinde saklayacağız
+				 * title oluÃ¾turuldu, burdan okuduÃ°umuz title sadece link bulmak iÃ§in
+				 * asÃ½l title'Ã½ infobox'tan Ã§ekip movie.infoBox nesnesinde saklayacaÃ°Ã½z
 				 */
-				String year = blocks[i+1];//link extensiondan bir sonraki blok year bloğu				
+				String year = blocks[i+1];//link extensiondan bir sonraki blok year bloÃ°u				
 				movie.setYear(year); //year set edildi
 				movie.setId(movieArchive.size()+1);							
-				movie.setWikiURL_EN("https://en.wikipedia.org/wiki/"+linkExtension);//başlangıç EN wiki link
+				movie.setWikiURL_EN("https://en.wikipedia.org/wiki/"+linkExtension);//baÃ¾langÃ½Ã§ EN wiki link
 				movie.setActiveWikiLink();
 				movie.setActiveVikiURL();
 				movie.setInfoBox(new InfoBox(movie.getWikiURL_EN()));
-				movieArchive.add(movie);//tüm filmler arşivlendi, indexleri sıralı
+				movieArchive.add(movie);//tÃ¼m filmler arÃ¾ivlendi, indexleri sÃ½ralÃ½
 			}
 		}
 	}
 	public void checkAndPrintMovies(String content) throws IOException{
 		System.out.println("------------------------------------------------------------------------");
 		/*
-		 * imdb'den alınmış bilgileri içeren dosya satır satır ayrılır
-		 * top250 ve top250_info dosyalarında filmlerin sırasının aynı olduğu düşünürsek
-		 * arşivdeki index ile satır indexi eşit olan filmlerin aynı olmasını bekleriz
-		 * satır atlamaları int id ile String dizisinde gezerek yapıyoruz
-		 * her bir satırı | delimiterına göre bloklara ayırıp dataları alıyoruz
-		 * daha sonra bu dataları bir infobox öğesine atıp arşivdeki filmin infoboxıyla kıyaslıyoruz
-		 * sonuca göre filmin onaylanmasına karar veriyoruz
-		 * onay bilgisi her filmin kendisi tarafından saklanacak
+		 * imdb'den alÃ½nmÃ½Ã¾ bilgileri iÃ§eren dosya satÃ½r satÃ½r ayrÃ½lÃ½r
+		 * top250 ve top250_info dosyalarÃ½nda filmlerin sÃ½rasÃ½nÃ½n aynÃ½ olduÃ°u dÃ¼Ã¾Ã¼nÃ¼rsek
+		 * arÃ¾ivdeki index ile satÃ½r indexi eÃ¾it olan filmlerin aynÃ½ olmasÃ½nÃ½ bekleriz
+		 * satÃ½r atlamalarÃ½ int id ile String dizisinde gezerek yapÃ½yoruz
+		 * her bir satÃ½rÃ½ | delimiterÃ½na gÃ¶re bloklara ayÃ½rÃ½p datalarÃ½ alÃ½yoruz
+		 * daha sonra bu datalarÃ½ bir infobox Ã¶Ã°esine atÃ½p arÃ¾ivdeki filmin infoboxÃ½yla kÃ½yaslÃ½yoruz
+		 * sonuca gÃ¶re filmin onaylanmasÃ½na karar veriyoruz
+		 * onay bilgisi her filmin kendisi tarafÃ½ndan saklanacak
 		 */
 		String[] movieRowsIMDB = content.split("\\n");
 		Integer id=0;
@@ -105,7 +105,7 @@ public class Archive {
 						ArrayList<String> starring = new ArrayList<String>();
 						for(int j=0; j< actors.length; j++){
 							//actor ekle
-							if(j!=0){//space'i almamak için substring çıkartıyoruz ilk actorden sonra
+							if(j!=0){//space'i almamak iÃ§in substring Ã§Ã½kartÃ½yoruz ilk actorden sonra
 								actors[j]=actors[j].substring(1, actors[j].length());
 								starring.add(actors[j]);								
 							}
