@@ -7,8 +7,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		/*
-		 * Arhieve ve FileIO singleton olduðu için yeni nesne yaratýyorum
-		 * sýnýfýn içinde olan static nesneyi alýp kullanýyoruz
+		 * Arhieve ve FileIO singleton olduÄŸu iÃ§in yeni nesne yaratÄ±yorum
+		 * sÄ±nÄ±fÄ±n iÃ§inde olan static nesneyi alÄ±p kullanÄ±yoruz
 		 */
 		Archive archieve = Archive.getArchive();
 		FileIO fileIO = FileIO.getFileIO();
@@ -24,11 +24,14 @@ public class Main {
 		Archive archieve = Archive.getArchive();
 		ArrayList<Movie> movieArchive = archieve.getMovieArchive();
 		System.out.println(
-				"\nIncelenen Film Sayýsý= "+movieArchive.size()
-				+ "\nIngilizce Kaynak Bulunan Film Sayýsý= "+(int)(movieArchive.size()-Movie.noAnyLangSource)
-				+ "\nIngilizce ve Türkçe Kaynak Bulunan Film sayýsý= "+(int)Movie.success
-				+ "\nTR Link Baþarý Oraný= %"+(Movie.success*100)/movieArchive.size()
-				+ "\nTR Link Onaylanma Oraný= %"+(Movie.verifySuccess*100)/new Movie().getSuccess());
+				"\nIncelenen Film SayÄ±sÄ±= "+movieArchive.size()
+				+ "\nIngilizce Kaynak Bulunan Film SayÄ±sÄ±= "+(int)(movieArchive.size()-Movie.noAnyLangSource)
+				+ "\nIngilizce ve TÃ¼rkÃ§e Kaynak Bulunan Film sayÄ±sÄ±= "+(int)Movie.success
+				+ "\nTR Link BaÅŸarÄ± OranÄ±= %"+(Movie.success*100)/movieArchive.size()
+				+ "\nTR Link Onaylanma OranÄ±= %"+(Movie.verifySuccess*100)/new Movie().getSuccess());
 	}
 	
 }
+
+
+// GTA 5 CODEX FPS FIX PATCH 0.39
