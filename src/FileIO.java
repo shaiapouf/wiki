@@ -57,7 +57,7 @@ public class FileIO {
     	return true;
 	}
 	
-	//GETTER_SETTER METHODLARI
+	//GETTER_SETTER METHODLAR
 	public Document getDoc() {
 		return doc;
 	}

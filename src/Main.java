@@ -25,10 +25,10 @@ public class Main {
 		ArrayList<Movie> movieArchive = archieve.getMovieArchive();
 		System.out.println(
 				"\nIncelenen Film Sayýsý= "+movieArchive.size()
-				+ "\nIngilizce Kaynak Bulunan Film Sayýsý= "+(movieArchive.size()-Movie.noAnyLangSource
-				+ "\nIngilizce ve Türkçe Kaynak Bulunan Film sayýsý= "+Movie.success
+				+ "\nIngilizce Kaynak Bulunan Film Sayýsý= "+(int)(movieArchive.size()-Movie.noAnyLangSource)
+				+ "\nIngilizce ve Türkçe Kaynak Bulunan Film sayýsý= "+(int)Movie.success
 				+ "\nTR Link Baþarý Oraný= %"+(Movie.success*100)/movieArchive.size()
-				+ "\nTR Link Onaylanma Oraný= %"+(Movie.verifySuccess*100)/new Movie().getSuccess()));
+				+ "\nTR Link Onaylanma Oraný= %"+(Movie.verifySuccess*100)/new Movie().getSuccess());
 	}
 	
 }

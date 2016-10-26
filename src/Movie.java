@@ -75,13 +75,10 @@ public class Movie {
 		System.out.println(" *active URL: "+activeLink);
 		this.setWikiURL_EN(activeLink);
 	}
-	public void print(){
-		System.out.println("\n"+this.id+")"+this.infoBox.getTitle()+"("+this.year+")");
-		this.infoBox.printInfo();
-		
-		System.out.println("Wiki EN: "+this.wikiURL_EN+"\nViki TR: "+this.vikiURL_TR);
-		
-		//System.out.println("Verified: "+this.getVerified());
+	@Override
+	public String toString(){		
+		return "\n"+this.id+")"+this.infoBox.getTitle()+"("+this.year+")"+this.infoBox.toString()+
+		("\nWiki EN: "+this.wikiURL_EN+"\nViki TR: "+this.vikiURL_TR);
 	}
 	
 	//GETTER-STTER METHODLARI

@@ -116,7 +116,7 @@ public class Archive {
 						break;
 				}
 			}
-			movie.print();
+			System.out.println(movie);
 			boolean verified = movie.getInfoBox().isEqual(comparisonInfoBox);
 			movie.setVerified(verified);
 			System.out.println("Verified: "+movie.getVerified());

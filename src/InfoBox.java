@@ -116,20 +116,21 @@ public class InfoBox {
 		}		  	
 	}
 	
-	//FUNCTIONS
-	public void printInfo(){
+	//FUNCTIONS	
+	@Override
+	public String toString(){
 		/*
 		 * InfoBox nesnesinin fieldlarýný ekrana bastýran method
 		 */
-		System.out.print("Director: "+this.director+"\nStarring: ");
+		String str = "\nDirector: "+this.director+"\nStarring: ";		
 		for(String star : this.starring){
-				System.out.print(star+", ");
+			str += star+", ";
 		}
-		System.out.println();
+		return str;
 	}
 	public boolean isEqual(InfoBox other){
 		if(!this.title.equals(other.getTitle())){
-			System.out.println("Dismatch: "+this.title+"!="+other.getTitle());
+			System.out.println("Mismatch: "+this.title+"!="+other.getTitle());
 			return false;
 		}
 			
